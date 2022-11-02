@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Client</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/table.css'>
+
+    <div>
+        <p id="string_name">Type a string:
+            <input id="word" type="text" placeholder="Enter text" >
+            <button class="btn btn-success" onclick="app.addWordTyped($('#word').val())">Twittear</button>
+            <button class="btn btn-success" onclick="app.showWords($('#word').val())">Show Tweets</button>
+
+        </p>
+    </div>
+
+
+    <table class="default" id="fl-table">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Tweet</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody id="info">
+        </tbody>
+    </table>
+
+
+    <script src="js/apiclient.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+
+
+
+</body>
+</html>
