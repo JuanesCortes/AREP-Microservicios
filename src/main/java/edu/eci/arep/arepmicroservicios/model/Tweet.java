@@ -1,7 +1,5 @@
-package co.edu.escuelaing.sparkdockerdemolive;
+package edu.eci.arep.arepmicroservicios.model;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 public class Tweet {
     private String mensaje;

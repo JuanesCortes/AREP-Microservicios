@@ -1,4 +1,4 @@
-package co.edu.escuelaing.sparkdockerdemolive;
+package edu.eci.arep.arepmicroservicios.database;
 
 import com.mongodb.*;
 import com.mongodb.client.*;
