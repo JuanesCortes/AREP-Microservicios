@@ -29,14 +29,15 @@ public class ArepMicroservicios {
 
         port(getPort());
         staticFiles.location("/files");
+        MongoDB mongoDB = new MongoDB();
         get("/showWords", (req,res) -> {
-            String gson = new Gson().toJson(twPersistance.getAllTweets());
+            String gson = new Gson().toJson(mongoDB.getTweets());
             return gson;
         });
         post("/addWord", (req, res) -> {
             res.status(200);
-            twPersistance.addTweet(req.body());
-            return twPersistance.getAllTweets();
+            mongoDB.insertTweet(makeTweet.createTweet(req.body()));
+            return mongoDB.getTweets();
         });
     }
 

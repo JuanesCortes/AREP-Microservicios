@@ -2,7 +2,6 @@ apiclient=(function(){
 
 	return {
 		addWord:function(tweet){
-		    console.log(tweet);
             const put_request = $.ajax({
                 url: "/addWord",
                 type: "POST",
@@ -18,7 +17,6 @@ apiclient=(function(){
               });
 
               get_request.then(function(data){
-                console.log(data);
                     callback(data,data);
                 }, function(error) {
                     callback(null, null);

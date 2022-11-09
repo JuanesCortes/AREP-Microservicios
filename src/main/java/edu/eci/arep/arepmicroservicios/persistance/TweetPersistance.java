@@ -2,6 +2,8 @@ package edu.eci.arep.arepmicroservicios.persistance;
 
 import edu.eci.arep.arepmicroservicios.model.Tweet;
 import edu.eci.arep.arepmicroservicios.model.makeTweet;
+import spark.Response;
+
 import java.util.ArrayList;
 
 /**
@@ -13,6 +15,7 @@ public class TweetPersistance {
     
     
     public void addTweet(String tw){
+
         addTweet(makeTweet.createTweet(tw));
     }
     
@@ -21,6 +24,7 @@ public class TweetPersistance {
     }
     
     public ArrayList<Tweet> getAllTweets(){
+
         return this.tweets;
     }
 }
