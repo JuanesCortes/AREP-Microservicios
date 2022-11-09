@@ -3,7 +3,7 @@
 ### Estudiantes:
 - **Juan Esteban Cortes**
 - **David Otalora**
-. **Natalia Orjuela**
+- **Natalia Orjuela**
 
 ### Tarea
 
