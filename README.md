@@ -1,9 +1,9 @@
 ### Tarea Microservicios - AREP
 
 ### Estudiantes:
-#### Juan Esteban Cortes
-#### David Otalora
-#### Natalia Orjuela
+**Juan Esteban Cortes**
+**David Otalora**
+**Natalia Orjuela**
 
 ### Tarea
 
