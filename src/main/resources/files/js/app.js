@@ -19,17 +19,16 @@ var app = (function () {
     table.empty();
     if (data !== undefined) {
       console.log(data);
-      //datanew = data.split(",");
+
       var temp_json = JSON.parse(data);
-//      datanew = datanew.slice(Math.max(datanew.length - 10, 0))
-      //let date = getCurrentDay();
+
       temp_json.forEach(function parsejson(item_tweet) {
         let values = item_tweet;
         let username = values.username;
         let tweet = values.mensaje;
         let date = values.fecha;
 
-        document.getElementById("info").innerHTML +=
+       document.getElementById("info").innerHTML +=
         `<tr>
             <td>${username}</td>
             <td>${tweet}</td>
