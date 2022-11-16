@@ -3,7 +3,7 @@ apiclient = (function() {
     return {
         addWord: function(tweet) {
             const put_request = $.ajax({
-                url: "http://ec2-52-91-175-215.compute-1.amazonaws.com:4568/addWord",
+                url: "/addWord",
                 type: "POST",
                 data: '{"tweet":' + tweet + '}',
                 contentType: "application/json",
@@ -11,7 +11,7 @@ apiclient = (function() {
         },
         showWords: function(callback) {
             const get_request = $.ajax({
-                url: "http://ec2-44-201-146-90.compute-1.amazonaws.com:4567/showWords",
+                url: "/showWords",
                 type: "GET",
                 contentType: "application/json",
             });
@@ -25,7 +25,7 @@ apiclient = (function() {
 
         login: function(user, pswd, callback) {
             const get_request = $.ajax({
-                url: "http://ec2-52-91-175-215.compute-1.amazonaws.com:4568/login?name=" + user + "&pswd=" + pswd,
+                url: "/login?name=" + user + "&pswd=" + pswd,
                 type: "GET",
                 contentType: "application/json",
             });
@@ -36,10 +36,5 @@ apiclient = (function() {
                 callback(null, null, null);
             });
         }
-
-        //ec2-52-91-175-215.compute-1.amazonaws.com:4568/login?name=Carlos&pswd=prueba123
-
-
-
     }
 })();

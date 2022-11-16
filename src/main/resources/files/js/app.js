@@ -45,11 +45,9 @@ var app = (function() {
     }
 
     function login(user, pswd) {
-        alert(user+" "+pswd);
-//        apiclient.login(user, pswd, (req, resp) => {
-//            alert(req+" "+resp);
-//            console.log(resp);
-//        });
+        apiclient.login(user, pswd, (req, resp) => {
+            console.log(resp);
+        });
     }
 
     function getCurrentDay() {
