@@ -1,43 +1,35 @@
 package edu.eci.arep.arepmicroservicios;
 
-import edu.eci.arep.arepmicroservicios.model.Tweet;
+import edu.eci.arep.arepmicroservicios.connection.HttpConnectionA;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-import com.google.gson.Gson;
-import edu.eci.arep.arepmicroservicios.model.makeTweet;
-import edu.eci.arep.arepmicroservicios.persistance.TweetPersistance;
 
-import java.util.ArrayList;
 
 
 import static spark.Spark.*;
 
 
-//co.edu.escuelaing.sparkdockerdemolive.SparkWebServer.java
 public class ArepMicroservicios {
 
-    //
-    //server.port=8081
-    //
-    //mongodb.database=tasks
-    //mongodb.connection.string=mongodb://localhost:27017
-    
-    private static TweetPersistance twPersistance = new TweetPersistance();
+
 
     public static void main(String... args) throws IOException, ClassNotFoundException, InvocationTargetException, IllegalAccessException {
 
         port(getPort());
         staticFiles.location("/files");
-        MongoDB mongoDB = new MongoDB();
+        get("/login", (req,res) -> {
+
+            return HttpConnectionA.consultar("http://ec2-54-226-72-113.compute-1.amazonaws.com:4568/login?name="+req.queryParams("name")+"&pswd="+req.queryParams("pswd"));
+        });
         get("/showWords", (req,res) -> {
-            String gson = new Gson().toJson(mongoDB.getTweets());
-            return gson;
+
+            return HttpConnectionA.consultar("http://ec2-3-84-5-27.compute-1.amazonaws.com:4567/showWords");
         });
         post("/addWord", (req, res) -> {
             res.status(200);
-            mongoDB.insertTweet(makeTweet.createTweet(req.body()));
-            return mongoDB.getTweets();
+
+            return HttpConnectionA.consultar("http://ec2-3-84-5-27.compute-1.amazonaws.com:4567/addWords");
         });
     }
 
