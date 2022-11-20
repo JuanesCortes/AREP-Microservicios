@@ -28,8 +28,8 @@ public class ArepMicroservicios {
         });
         post("/addWord", (req, res) -> {
             res.status(200);
-
-            return HttpConnectionA.consultar("http://ec2-3-84-5-27.compute-1.amazonaws.com:4567/addWords");
+            HttpConnectionA.enviarPost("http://ec2-44-202-92-126.compute-1.amazonaws.com:4567/addWord", req.body());
+            return HttpConnectionA.consultar("http://ec2-44-202-92-126.compute-1.amazonaws.com:4567/showWords");
         });
     }
 
