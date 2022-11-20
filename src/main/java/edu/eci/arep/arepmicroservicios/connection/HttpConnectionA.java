@@ -54,23 +54,8 @@ public class HttpConnectionA {
     public static void enviarPost(String urlStr, String par) throws IOException {
         System.out.println(par);
         URL url = new URL(urlStr);
-        Map<String, Object> params = new LinkedHashMap<>();
- 
-        params.put("parametro", par);
- 
-        StringBuilder postData = new StringBuilder();      
-        for (Map.Entry<String, Object> param : params.entrySet()) {
-            if (postData.length() != 0)
-                postData.append('&');
-            postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
-            postData.append('=');
-            postData.append(URLEncoder.encode(String.valueOf(param.getValue()),
-                    "UTF-8"));
-        }
-        byte[] postDataBytes = postData.toString().getBytes("UTF-8");
+        byte[] postDataBytes = par.toString().getBytes("UTF-8");
         
-        System.out.println(postData.toString());
- 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
         conn.setRequestProperty("User-Agent", USER_AGENT);

@@ -7,6 +7,7 @@ var app = (function() {
 
     function addWordTyped(word) {
         var name = document.getElementById('name_id').innerHTML;
+        name = name.replace("Welcome!", "");
         apiclient.addWord(name, word);
     }
 
@@ -69,7 +70,7 @@ var app = (function() {
 
     function loadUsername() {
         var link = window.location.href;
-        const username = link.replace("http://localhost:4567/tweet.html?", "");
+        const username = link.replace("http://ec2-3-89-126-114.compute-1.amazonaws.com:4567/tweet.html?", "");
         document.getElementById('name_id').innerHTML = 'Welcome! ' + username;
     }
 

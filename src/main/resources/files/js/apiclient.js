@@ -5,7 +5,7 @@ apiclient = (function() {
             const put_request = $.ajax({
                 url: "/addWord",
                 type: "POST",
-                data: '{ "username":' + username + ', "tweet:"' + tweet + '}',
+                data: '{ "username": "' + username + '", "tweet": "' + tweet + '" }',
                 contentType: "application/json",
             });
         },
