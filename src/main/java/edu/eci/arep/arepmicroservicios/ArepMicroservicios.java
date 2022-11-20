@@ -20,11 +20,11 @@ public class ArepMicroservicios {
         staticFiles.location("/files");
         get("/login", (req,res) -> {
 
-            return HttpConnectionA.consultar("http://ec2-54-226-72-113.compute-1.amazonaws.com:4568/login?name="+req.queryParams("name")+"&pswd="+req.queryParams("pswd"));
+            return HttpConnectionA.consultar("http://ec2-44-206-231-246.compute-1.amazonaws.com:4568/login?name="+req.queryParams("name")+"&pswd="+req.queryParams("pswd"));
         });
         get("/showWords", (req,res) -> {
 
-            return HttpConnectionA.consultar("http://ec2-3-84-5-27.compute-1.amazonaws.com:4567/showWords");
+            return HttpConnectionA.consultar("http://ec2-44-202-92-126.compute-1.amazonaws.com:4567/showWords");
         });
         post("/addWord", (req, res) -> {
             res.status(200);
