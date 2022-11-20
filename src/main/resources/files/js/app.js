@@ -6,7 +6,8 @@ var app = (function() {
     }
 
     function addWordTyped(word) {
-        apiclient.addWord(word);
+        var name = document.getElementById('name_id').innerHTML;
+        apiclient.addWord(name, word);
     }
 
     function showWords(word) {
@@ -46,8 +47,15 @@ var app = (function() {
 
     function login(user, pswd) {
         apiclient.login(user, pswd, (req, resp) => {
-            console.log(resp);
-        });
+            const temp_json = JSON.parse(resp);
+            var name = temp_json.name;
+            console.log(temp_json.status);
+            if (temp_json.status) {
+                window.location.replace("tweet.html?" + temp_json.name);
+            } else {
+                alert("User not found");
+            }
+        })
     }
 
     function getCurrentDay() {
@@ -59,12 +67,19 @@ var app = (function() {
         return today;
     }
 
+    function loadUsername() {
+        var link = window.location.href;
+        const username = link.replace("http://localhost:4567/tweet.html?", "");
+        document.getElementById('name_id').innerHTML = 'Welcome! ' + username;
+    }
+
 
 
     return {
         login: login,
         addWordTyped: addWordTyped,
-        showWords: showWords
+        showWords: showWords,
+        loadUsername: loadUsername
     }
 
 })();

@@ -1,11 +1,11 @@
 apiclient = (function() {
 
     return {
-        addWord: function(tweet) {
+        addWord: function(username, tweet) {
             const put_request = $.ajax({
                 url: "/addWord",
                 type: "POST",
-                data: '{"tweet":' + tweet + '}',
+                data: '{ "username":' + username + "tweet:" + tweet + '}',
                 contentType: "application/json",
             });
         },
@@ -15,7 +15,6 @@ apiclient = (function() {
                 type: "GET",
                 contentType: "application/json",
             });
-
             get_request.then(function(data) {
                 callback(data, data);
             }, function(error) {
@@ -24,16 +23,19 @@ apiclient = (function() {
         },
 
         login: function(user, pswd, callback) {
-            const get_request = $.ajax({
+            const get_request = $.get({
                 url: "/login?name=" + user + "&pswd=" + pswd,
-                type: "GET",
                 contentType: "application/json",
             });
-            alert(get_request);
+            var t = null;
+            get_request.then(function(data) {
+                t = data;
+            });
+            alert("Login succefully" + t);
             get_request.then(function(data) {
                 callback(data, data, data);
             }, function(error) {
-                callback(null, null, null);
+                alert("login error");
             });
         }
     }
