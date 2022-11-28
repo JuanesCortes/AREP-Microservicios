@@ -15,3 +15,8 @@
 6. Separe el monolito en tres microservicios independientes.
 7. Despliegue el seervicio en AWS con EC2 y realice pruebas (Puede usar docker o 3 máquinas AWS)
 8. Entregue el código desarrollado en Github, un reporte de la arquitectura, un reporte de las pruebas, y un video con el experimento funcionando y bien configurado (Todo en el README).
+
+### Video
+
+
+[TallerMicroservicios](https://www.youtube.com/watch?v=mwogMmYHCbE "TallerMicroservicios")
